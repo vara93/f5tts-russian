@@ -1,0 +1,5 @@
+version = 1
+revision = 1
+requires-python = "==3.11.*"
+# Deployment uses exact, audited pins from pyproject.toml and install.sh. Regenerate
+# this lock with `uv lock` in a networked amd64 Python 3.11 environment on update.

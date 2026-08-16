@@ -1,0 +1,13 @@
+[project]
+name = "f5tts-russian-local"
+version = "1.0.0"
+requires-python = "==3.11.*"
+dependencies = [
+  "f5-tts==1.1.22", "gradio==5.35.0", "fastapi==0.115.12", "uvicorn==0.34.3",
+  "huggingface-hub==0.33.1", "safetensors==0.5.3", "vocos==0.1.0",
+  "soundfile==0.13.1", "numpy==1.26.4"
+]
+[dependency-groups]
+dev = ["pytest==8.4.1"]
+[tool.pytest.ini_options]
+testpaths = ["tests"]
