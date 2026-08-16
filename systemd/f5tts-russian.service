@@ -1,0 +1,35 @@
+[Unit]
+Description=Локальная лаборатория F5-TTS Russian
+After=network.target
+
+[Service]
+Type=simple
+User=f5tts
+Group=f5tts
+WorkingDirectory=/opt/f5tts-russian
+Environment=CUDA_VISIBLE_DEVICES=
+Environment=HF_HOME=/var/lib/f5tts-russian/huggingface
+Environment=HF_HUB_OFFLINE=1
+Environment=TRANSFORMERS_OFFLINE=1
+Environment=GRADIO_ANALYTICS_ENABLED=False
+EnvironmentFile=-/etc/f5tts-russian/environment
+ExecStart=/opt/f5tts-russian/.venv/bin/python /opt/f5tts-russian/app.py
+Restart=on-failure
+RestartSec=5
+TimeoutStartSec=900
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateDevices=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+LockPersonality=true
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
+ReadWritePaths=/var/lib/f5tts-russian
+UMask=0077
+
+[Install]
+WantedBy=multi-user.target
